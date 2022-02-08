@@ -13,7 +13,8 @@ public class BaseTest {
 
     @BeforeTest
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
+        PropertiesManager propertiesManager = new PropertiesManager();
+        System.setProperty("webdriver.chrome.driver", propertiesManager.get("PATH_TO_CHROME_DRIVER"));
         driver = new ChromeDriver();
         System.out.println("Start Driver");
     }
