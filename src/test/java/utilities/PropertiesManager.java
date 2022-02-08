@@ -7,9 +7,9 @@ import java.util.Properties;
 public class PropertiesManager {
     private final String propertyFilePath;
     private Properties prop;
-
+///Users/da/Desktop/SauceDemo/src/test/resources/config.properties
     public PropertiesManager() {
-        propertyFilePath = System.getProperty("user.dir") + "/src/test/resources/config.properties";
+        propertyFilePath = System.getProperty("/Users/da") + "/src/test/resources/config.properties";
     }
 
     private void loadData() {
