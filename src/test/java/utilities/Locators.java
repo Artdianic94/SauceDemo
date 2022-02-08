@@ -21,5 +21,5 @@ public class Locators {
     public By endWithWord = By.cssSelector("[class$='facebook']");//[attribute$=value]
     public By attributeWithWord = By.cssSelector("[alt*='Bot']");//[attribute*=value]
     public By socialNetworksFirst = By.cssSelector("li:first-child");
-    public By socialNetworksThird = By.cssSelector("li:nth-child(3)");
+    public By socialNetworksSecond = By.cssSelector("li:nth-child(2)");
 }
