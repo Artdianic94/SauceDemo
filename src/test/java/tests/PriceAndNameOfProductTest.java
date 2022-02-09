@@ -6,8 +6,6 @@ import org.testng.annotations.Test;
 import staticdata.WebUrl;
 
 public class PriceAndNameOfProductTest extends BaseTest {
-
-
     @Test
     public void priceTest() {
         driver.get(WebUrl.SAUCE_DEMO_URL);
