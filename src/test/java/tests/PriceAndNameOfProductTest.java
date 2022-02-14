@@ -9,6 +9,7 @@ import staticdata.WebUrl;
 public class PriceAndNameOfProductTest extends BaseTest {
     RegistrationPOMPage registrationPOMPage;
     ShoppingCartPOMPage shoppingCartPOMPage;
+
     @Test
     public void priceTest() {
         registrationPOMPage = new RegistrationPOMPage(driver);
