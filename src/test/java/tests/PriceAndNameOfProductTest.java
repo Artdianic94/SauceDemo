@@ -2,22 +2,22 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.RegistrationPOMPage;
+import pages.LoginPOMPage;
 import pages.ShoppingCartPOMPage;
 import staticdata.WebUrl;
 
 public class PriceAndNameOfProductTest extends BaseTest {
-    RegistrationPOMPage registrationPOMPage;
+    LoginPOMPage loginPOMPage;
     ShoppingCartPOMPage shoppingCartPOMPage;
 
     @Test
     public void priceTest() {
-        registrationPOMPage = new RegistrationPOMPage(driver);
+        loginPOMPage = new LoginPOMPage(driver);
         shoppingCartPOMPage = new ShoppingCartPOMPage(driver);
-        registrationPOMPage.openRegistrationPage();
-        registrationPOMPage.inputIntoEmail(WebUrl.EMAIL);
-        registrationPOMPage.inputIntoPassword(WebUrl.PASSWORD);
-        registrationPOMPage.registrationButton();
+        loginPOMPage.openRegistrationPage();
+        loginPOMPage.inputIntoEmail(WebUrl.EMAIL);
+        loginPOMPage.inputIntoPassword(WebUrl.PASSWORD);
+        loginPOMPage.loginButton();
         shoppingCartPOMPage.addProductToShopCart();
         String priceOnPage = shoppingCartPOMPage.priceOnPage();
         shoppingCartPOMPage.goToShoppingCart();
@@ -27,12 +27,12 @@ public class PriceAndNameOfProductTest extends BaseTest {
 
     @Test
     public void nameTest() {
-        registrationPOMPage = new RegistrationPOMPage(driver);
+        loginPOMPage = new LoginPOMPage(driver);
         shoppingCartPOMPage = new ShoppingCartPOMPage(driver);
-        registrationPOMPage.openRegistrationPage();
-        registrationPOMPage.inputIntoEmail(WebUrl.EMAIL);
-        registrationPOMPage.inputIntoPassword(WebUrl.PASSWORD);
-        registrationPOMPage.registrationButton();
+        loginPOMPage.openRegistrationPage();
+        loginPOMPage.inputIntoEmail(WebUrl.EMAIL);
+        loginPOMPage.inputIntoPassword(WebUrl.PASSWORD);
+        loginPOMPage.loginButton();
         shoppingCartPOMPage.addProductToShopCart();
         String nameOnPage = shoppingCartPOMPage.nameOnPage();
         shoppingCartPOMPage.goToShoppingCart();
