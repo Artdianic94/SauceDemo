@@ -2,6 +2,7 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.LinkedinPage;
 import pages.LoginPOMPage;
 import pages.ShoppingCartPOMPage;
 import staticdata.WebUrl;
@@ -9,6 +10,7 @@ import staticdata.WebUrl;
 public class PriceAndNameOfProductTest extends BaseTest {
     LoginPOMPage loginPOMPage;
     ShoppingCartPOMPage shoppingCartPOMPage;
+    LinkedinPage linkedinPage;
 
     @Test
     public void priceTest() {
@@ -38,5 +40,21 @@ public class PriceAndNameOfProductTest extends BaseTest {
         shoppingCartPOMPage.goToShoppingCart();
         String nameInShoppingCart = shoppingCartPOMPage.nameInShoppingCart();
         Assert.assertEquals(nameInShoppingCart, nameOnPage, "Names are not equal");
+    }
+
+    @Test
+    public void linkedinWithWaitTest() {
+        loginPOMPage = new LoginPOMPage(driver);
+        shoppingCartPOMPage = new ShoppingCartPOMPage(driver);
+        linkedinPage = new LinkedinPage(driver);
+        loginPOMPage.openRegistrationPage();
+        loginPOMPage.inputIntoEmail(WebUrl.EMAIL);
+        loginPOMPage.inputIntoPassword(WebUrl.PASSWORD);
+        loginPOMPage.loginButton();
+        removeTimeout();
+        linkedinPage.openLinkedin();
+        linkedinPage.newTabForLinkedin();
+        boolean isVisible = linkedinPage.getLogo();
+        Assert.assertTrue(isVisible, "Logo isn't visible");
     }
 }
