@@ -1,8 +1,5 @@
 package tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LinkedinPage;
@@ -57,8 +54,6 @@ public class PriceAndNameOfProductTest extends BaseTest {
         removeTimeout();
         linkedinPage.openLinkedin();
         linkedinPage.newTabForLinkedin();
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("nav__logo-link")));
         boolean isVisible = linkedinPage.getLogo();
         Assert.assertTrue(isVisible, "Logo isn't visible");
     }
