@@ -17,7 +17,7 @@ public class PriceAndNameOfProductTest extends BaseTest {
         loginPOMPage = new LoginPOMPage(driver);
         shoppingCartPOMPage = new ShoppingCartPOMPage(driver);
         loginPOMPage.openRegistrationPage();
-        loginPOMPage.inputIntoEmail(WebUrl.EMAIL);
+        loginPOMPage.inputIntoEmail(WebUrl.EMAIL_FIRST);
         loginPOMPage.inputIntoPassword(WebUrl.PASSWORD);
         loginPOMPage.loginButton();
         shoppingCartPOMPage.addProductToShopCart();
@@ -32,7 +32,7 @@ public class PriceAndNameOfProductTest extends BaseTest {
         loginPOMPage = new LoginPOMPage(driver);
         shoppingCartPOMPage = new ShoppingCartPOMPage(driver);
         loginPOMPage.openRegistrationPage();
-        loginPOMPage.inputIntoEmail(WebUrl.EMAIL);
+        loginPOMPage.inputIntoEmail(WebUrl.EMAIL_FIRST);
         loginPOMPage.inputIntoPassword(WebUrl.PASSWORD);
         loginPOMPage.loginButton();
         shoppingCartPOMPage.addProductToShopCart();
@@ -48,10 +48,10 @@ public class PriceAndNameOfProductTest extends BaseTest {
         shoppingCartPOMPage = new ShoppingCartPOMPage(driver);
         linkedinPage = new LinkedinPage(driver);
         loginPOMPage.openRegistrationPage();
-        loginPOMPage.inputIntoEmail(WebUrl.EMAIL);
+        loginPOMPage.inputIntoEmail(WebUrl.EMAIL_FIRST);
         loginPOMPage.inputIntoPassword(WebUrl.PASSWORD);
         loginPOMPage.loginButton();
-        removeTimeout();
+        driverManager.removeTimeout();
         linkedinPage.openLinkedin();
         linkedinPage.newTabForLinkedin();
         boolean isVisible = linkedinPage.getLogo();
