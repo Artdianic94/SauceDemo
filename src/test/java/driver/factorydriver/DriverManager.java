@@ -3,12 +3,13 @@ package driver.factorydriver;
 import org.openqa.selenium.WebDriver;
 import staticdata.WebTimeouts;
 
+import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
 public abstract class DriverManager {
     public WebDriver driver;
 
-    public abstract void createDriver();
+    public abstract void createDriver() throws MalformedURLException;
 
     public WebDriver getDriver() {
         return driver;
@@ -26,5 +27,9 @@ public abstract class DriverManager {
 
     public void quitDriver() {
         driver.quit();
+    }
+
+    public void maximize() {
+        driver.manage().window().maximize();
     }
 }
