@@ -1,5 +1,7 @@
 package tests;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
@@ -8,6 +10,7 @@ import pages.LinkedinPage;
 import pages.LoginPOMPage;
 import pages.ShoppingCartPOMPage;
 import staticdata.WebUrl;
+import utilities.Retry;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -17,12 +20,15 @@ public class PriceAndNameOfProductTest extends BaseTest {
     LoginPOMPage loginPOMPage;
     ShoppingCartPOMPage shoppingCartPOMPage;
     LinkedinPage linkedinPage;
+    private static Logger LOGGER = LogManager.getLogger(PriceAndNameOfProductTest.class.getName());
 
-    @Test
+    @Test(retryAnalyzer = Retry.class)
     public void priceTest() throws IOException {
         loginPOMPage = new LoginPOMPage(driver);
         shoppingCartPOMPage = new ShoppingCartPOMPage(driver);
+        LOGGER.info("Open registration page");
         loginPOMPage.openRegistrationPage();
+        LOGGER.info("input sign in");
         loginPOMPage.inputIntoEmail(WebUrl.EMAIL_FIRST);
         loginPOMPage.inputIntoPassword(WebUrl.PASSWORD);
         loginPOMPage.loginButton();
@@ -36,7 +42,7 @@ public class PriceAndNameOfProductTest extends BaseTest {
         Assert.assertEquals(priceInShoppingCart, priceOnPage, "Prices are not equal");
     }
 
-    @Test
+    @Test(retryAnalyzer = Retry.class)
     public void nameTest() throws IOException {
         loginPOMPage = new LoginPOMPage(driver);
         shoppingCartPOMPage = new ShoppingCartPOMPage(driver);
@@ -54,7 +60,7 @@ public class PriceAndNameOfProductTest extends BaseTest {
         Assert.assertEquals(nameInShoppingCart, nameOnPage, "Names are not equal");
     }
 
-    @Test
+    @Test(retryAnalyzer = Retry.class)
     public void linkedinWithWaitTest() throws IOException {
         loginPOMPage = new LoginPOMPage(driver);
         shoppingCartPOMPage = new ShoppingCartPOMPage(driver);
