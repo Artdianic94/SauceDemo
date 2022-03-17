@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
@@ -15,7 +16,9 @@ import utilities.Retry;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
+@Epic("Web test")
+@Feature("Price and name")
+@Story("Price and Name on page and in the shopping cart are equal")
 public class PriceAndNameOfProductTest extends BaseTest {
     LoginPOMPage loginPOMPage;
     ShoppingCartPOMPage shoppingCartPOMPage;
@@ -23,6 +26,10 @@ public class PriceAndNameOfProductTest extends BaseTest {
     private static Logger LOGGER = LogManager.getLogger(PriceAndNameOfProductTest.class.getName());
 
     @Test(retryAnalyzer = Retry.class)
+    @Description("Check price on page")
+    @Link("https://instagram.com")
+    @Issue("COVID-19")
+    @Severity(SeverityLevel.NORMAL)
     public void priceTest() throws IOException {
         loginPOMPage = new LoginPOMPage(driver);
         shoppingCartPOMPage = new ShoppingCartPOMPage(driver);
@@ -41,7 +48,10 @@ public class PriceAndNameOfProductTest extends BaseTest {
         Files.write(Paths.get("src/test/resources/screenshotPriceTest.png"), sourceFile);
         Assert.assertEquals(priceInShoppingCart, priceOnPage, "Prices are not equal");
     }
-
+    @Description("Check name on page")
+    @Link("https://instagram.com")
+    @Issue("COVID-19")
+    @Severity(SeverityLevel.NORMAL)
     @Test(retryAnalyzer = Retry.class)
     public void nameTest() throws IOException {
         loginPOMPage = new LoginPOMPage(driver);
@@ -59,7 +69,10 @@ public class PriceAndNameOfProductTest extends BaseTest {
         Files.write(Paths.get("src/test/resources/screenshotNameTest.png"), sourceFile);
         Assert.assertEquals(nameInShoppingCart, nameOnPage, "Names are not equal");
     }
-
+    @Description("Check linkedin")
+    @Link("https://instagram.com")
+    @Issue("COVID-19")
+    @Severity(SeverityLevel.NORMAL)
     @Test(retryAnalyzer = Retry.class)
     public void linkedinWithWaitTest() throws IOException {
         loginPOMPage = new LoginPOMPage(driver);
