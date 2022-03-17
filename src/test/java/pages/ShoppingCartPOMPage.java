@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -15,18 +16,22 @@ public class ShoppingCartPOMPage extends BasePage {
         super(driver);
     }
 
+    @Step("Click on product button")
     public void addProductToShopCart() {
         driver.findElement(PRODUCT_BUTT).click();
     }
 
+    @Step("Get price of product on page")
     public String priceOnPage() {
         return driver.findElement(PRODUCT_PRICE_ON_PAGE).getText();
     }
 
+    @Step("Go to shopping cart")
     public void goToShoppingCart() {
         driver.findElement(SHOPPING_CART).click();
     }
 
+    @Step("Get price in shopping cart")
     public String priceInShoppingCart() {
         return driver.findElement(PRODUCT_PRICE_IN_SHOP_CART).getText();
     }
